@@ -15,7 +15,7 @@ Résultat:   Affiche en décimal des codes ASCII des lettres MAJUSCULES
 
 # 1_Se documenter sur le codage des caractères en ASCII
 """
-Voir cours et table ASCII étendue sur Moodle
+Voir cours et table ASCII étendue sur Moodle  (ICI MODIFICATION GUILLERMO) 
 
 
 
