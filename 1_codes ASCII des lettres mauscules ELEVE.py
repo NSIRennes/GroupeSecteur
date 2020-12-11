@@ -23,7 +23,7 @@ Voir cours et table ASCII étendue sur Moodle
 
 # 2_Dans la table ASCII ou la table ASCII étendue, repérer le code HEXADECIMAL
 # du caractère A et celui du caractère Z
-#            A -->                Z -->
+#            A --> 65               Z -->
 
 # 3_Mémoriser le code ASCII hexadécimal du caractère A dans une variable A_ASCII
 # A_ASCII=____
