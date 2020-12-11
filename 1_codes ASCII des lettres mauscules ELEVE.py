@@ -1,7 +1,7 @@
 """
 Ce programme:  Affiche les codes ASCII des lettres MAJUSCULES
 
-Auteur:
+Auteur:                                                                           --> TEST          BRANCHE LAURENT
 Date: nov 2020
 
 Entrée:
