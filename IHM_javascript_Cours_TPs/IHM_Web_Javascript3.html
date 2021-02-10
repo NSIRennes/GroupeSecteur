@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>IHM</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <h1>IHM - Page web et javascript</h1>
+<section id="cours">
+<h2 id="evenement"> 2. Les événements</h2>
+    
+<div id="clavier">
+    <h3> les événements clavier</h3>
+Voici la liste des événements clavier avec des exemples d'application. 
+Les événements sont créés sur l'objet document.
+    <table>
+        <thead>
+        <tr>
+            <th>événement</th>
+            <th>action qui le déclenche </th>
+            <th> exemple (à tester sur une ou plusieurs touches du clavier en même temps) </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="ligne1">
+            <td> keydown </td>
+            <td>appuyer sans relâcher sur une touche du clavier</td>
+            <td><i>exemple </i>: <span id="aremplir1" class="rajout"></span><br>
+                La fonction <span class="methode">function(e)</span> invoquée dans la création de l'événement écrit un texte comprenant le code ASCII de la touche enfoncée et le caractère associé dans l'élément inline &lt; span id="aremplir1" class="rajout" &gt; .
+            <pre><code>var texte0=" ; elle correspond au caractère ";
+            var zone1=document.getElementById('aremplir1');  
+var texte1="vous avez appuyé sur la touche de code ";
+document.addEventListener('keydown',function(e)
+{zone1.innerHTML=texte1+e.keyCode+texte0+String.fromCharCode(e.keyCode);})</code></pre></td>
+        </tr>
+        <tr id="ligne2">
+            <td>keyup</td>
+            <td>relâcher une touche du clavier</td>
+            <td><i>exemple</i> : <span id="aremplir2" class="rajout"></span>
+                <br>
+                La fonction <span class="methode">function(e)</span> invoquée dans la création de l'événement écrit un texte comprenant le code ASCII de la touche enfoncée et le caractère associé dans l'élément inline &lt; span id="aremplir2" class="rajout" &gt; 
+            <pre><code>var texte0=" ; elle correspond au caractère ";
+            var zone2=document.getElementById('aremplir2');  
+var texte2="vous avez relâché la touche de code ";
+document.addEventListener('keyup',function(e)
+{zone2.innerHTML=texte2+e.keyCode+texte0+String.fromCharCode(e.keyCode);})</code></pre></td>
+        </tr>
+        <tr id="ligne3">
+            <td>keypress</td>
+            <td>frapper (appuyer puis relâcher) une touche de clavier </td>
+            <td><i>exemple</i> : <span id="aremplir3" class="rajout"></span><br>
+                La fonction <span class="methode">function(e)</span> invoquée dans la création de l'événement écrit un texte comprenant le code ASCII de la touche enfoncée et le caractère associé dans l'élément inline &lt; span id="aremplir3" class="rajout" &gt; 
+            <pre><code>var texte0=" ; elle correspond au caractère ";
+            var zone3=document.getElementById('aremplir3');  
+var texte3="vous avez frappé la touche de code ";
+document.addEventListener('keypress',function(e)
+{zone3.innerHTML=texte3+e.keyCode+texte0+String.fromCharCode(e.keyCode);})
+</code></pre></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+<h4>Remarques :</h4>
+<ul>
+    <li>les événements keyup et keydown détectent toutes les frappes de touches alors que l'événement keypress ne détecte que les touches qui écrivent un caractère  </li>
+<li>dans le cas d'une touche de caractère, les événements keyup et keydown retournent un caractère majuscule</li>
+    <li>l'événement keypress permet de détecter les combinaisons de touches</li>
+</ul>
+    <h4>Les propriétés associées :</h4>
+<ul> 
+    <li><span class="methode">keyCode</span> permet de récupérer le code ASCII</li>
+<li><span class="methode">String.fromCharCode(/*code ASCII */)</span> : permet de convertir un code ASCII en caractère lisible</li>
+    </ul>
+
+Voici le résultat de vos tests :
+<div class="resultat" id="touches"></div> 
+  
+Ce n'est pas forcément la façon la plus adéquate de récupérer du texte.
+</section>
+<footer id="navigation">
+
+<a id="precedent" href="IHM_Web_Javascript2.html"> &lt;- page précédente  </a> ; 
+<a id="suivant" href="IHM_Web_Javascript4.html">page suivante -&gt; </a>
+
+</footer>
+
+<nav> 
+<h4>Sources :</h4>
+<ul>
+    <li>
+        <a href="https://openclassrooms.com/fr/courses/1916641-dynamisez-vos-sites-web-avec-javascript/1918968-les-evenements">openclassrooms.com</a>
+    </li>
+    <li>
+        <a href="https://developer.mozilla.org/fr/docs/Apprendre/JavaScript/Building_blocks/Evènements">developer.mozilla.org</a>
+    </li>
+    <li>
+        <a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/addeventlistener-gestion-evenement/">Pierre Giraud</a>
+    </li>
+    <li>
+        <a href="https://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html">alsacreations.com</a>
+    </li>
+</ul>
+</nav>
+</body>
+<script>
+var texte0=" ; elle correspond au caractère ";
+var contenufinal=""
+    // pour le keydown
+var zone1=document.getElementById('aremplir1');  
+var texte1="vous avez appuyé sur la touche de code ";
+document.addEventListener('keydown',function(e){zone1.innerHTML=texte1+e.keyCode+texte0+String.fromCharCode(e.keyCode);contenufinal+=String.fromCharCode(e.keyCode);document.getElementById("touches").innerHTML=contenufinal;})
+// pour le keyup
+var zone2=document.getElementById('aremplir2');  
+var texte2="vous avez relâché la touche de code ";
+document.addEventListener('keyup',function(e){zone2.innerHTML=texte2+e.keyCode+texte0+String.fromCharCode(e.keyCode);contenufinal+=String.fromCharCode(e.keyCode);document.getElementById("touches").innerHTML=contenufinal;})
+// pour le keypress
+var zone3=document.getElementById('aremplir3');  
+var texte3="vous avez frappé la touche de code ";
+document.addEventListener('keypress',function(e){zone3.innerHTML=texte3+e.keyCode+texte0+String.fromCharCode(e.keyCode);contenufinal+=String.fromCharCode(e.keyCode);document.getElementById("touches").innerHTML=contenufinal;})
+
+</script>
+</html>

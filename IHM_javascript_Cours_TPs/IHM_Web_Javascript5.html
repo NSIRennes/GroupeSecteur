@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>IHM</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <h1>IHM - Page web et javascript</h1>
+<section id="cours">
+<h2 id="formulaire"> 3. Les formulaires</h2>
+
+        
+    <h4>Récupérer le résultat</h4>
+    Appuyer sur le bouton suivant pour récupérer le résultat de la page précédente.
+        <input type="button" value="récupérer" onclick="recuperer()">
+   <div id="aremplir" class="rajout"></div>
+<br>Le script associé à la fonction du bouton est le suivant :
+    <pre><code>
+function recuperer()
+{
+var obj = JSON.parse(localStorage.getItem('monTexte'));
+document.getElementById("aremplir").innerHTML=obj;	
+}</code></pre>
+    <p>Attention : cette méthode de stockage locale a une capacité et une durée limitées.</p>
+    <p> <u>Remarque 1</u> :  le choix a été fait ici de focaliser sur la construction du formulaire pour récupérer des données et non pas sur la transmission de ces données d'où le choix du local. La transmission des données fera l'objet d'un cours ultérieur. </p>
+    <p> <u>Remarque 2</u> : seuls quelques éléments de formulaires et leur utilisation basique ont été présentés dans ce cours. Pour approfondir, il existe de nombreuses ressources en ligne. </p>
+    En voici quelques unes : 
+    <ul>
+        <li>les éléments de base pour bien concevoir son formulaire sur <a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Mon_premier_formulaire_HTML">developer.mozilla.org</a> (ne pas tenir compte de l'attribut <span class="methode">method</span> de la balise <span class="methode"> &lt; form &gt;</span> : cet attribut sera vu ultérieurement avec la notion de client-serveur)</li>
+        <li>un memento des éléments de formulaire et de leurs attributs sur <a href="https://www.toutjavascript.com/savoir/savoir06_1.php3">toutjavascript.com</a></li>
+        <li>fonctionnalités avancées sur <a href="https://openclassrooms.com/fr/courses/1916641-dynamisez-vos-sites-web-avec-javascript/1919022-les-formulaires">Openclassroom</a>
+        </li>
+    </ul>   
+</section>
+    <section>
+        <h3>Application :</h3>
+       <p>Vous êtes en charge du site de commande pour la commercialisation d'un mini-drone.<br>
+        A vous de construire le formulaire sur la page de <a href="./achat/commande.html">commande</a> et de compléter la page d'accusé de réception accessible après validation du formulaire.</p>
+    </section>
+<footer id="navigation">
+
+<a id="precedent" href="IHM_Web_Javascript4.html"> &lt;- page précédente  </a> ; 
+<a id="suivant">page suivante -&gt; </a>
+
+</footer>
+
+<nav> 
+<h4>Sources :</h4>
+<ul>
+    <li>
+        <a href="https://openclassrooms.com/fr/courses/1916641-dynamisez-vos-sites-web-avec-javascript/1918968-les-evenements">openclassrooms.com</a>
+    </li>
+    <li>
+        <a href="https://developer.mozilla.org/fr/docs/Apprendre/JavaScript/Building_blocks/Evènements">developer.mozilla.org</a>
+    </li>
+    <li>
+        <a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/addeventlistener-gestion-evenement/">Pierre Giraud</a>
+    </li>
+    <li>
+        <a href="https://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html">alsacreations.com</a>
+    </li>
+</ul>
+</nav>
+</body>
+<script>
+     
+    function recuperer()
+{
+    var obj = JSON.parse(localStorage.getItem('monTexte'));
+    document.getElementById("aremplir").innerHTML=obj;	
+}
+		
+</script>
+</html>

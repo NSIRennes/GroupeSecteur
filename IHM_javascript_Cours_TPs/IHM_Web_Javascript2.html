@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>IHM</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <h1>IHM - Page web et javascript</h1>
+<section id="cours">
+<h2 id="evenement"> 2. Les événements</h2>
+<div id="objetEvent">
+<h3>L'objet Event</h3>
+<p> 
+Cet objet va servir à récupérer des informations sur l'événement déclenché (touche du clavier enfoncée, coordonnées du curseur, etc).
+</p>
+<ul>Des événements "souris" ont été associés à différents éléments de la page :
+    <li>un clic sur la section <span id="aremplir1" class="rajout"></span>
+        <pre><code>var masection=document.getElementById('cours');
+var titre=document.getElementById('evenement');
+var contenu1=document.getElementById('aremplir1');
+masection.addEventListener('click',function(e){titre.innerHTML=titre.innerHTML+" et l'objet Event ";contenu1.innerHTML=" a modifié le texte du titre.";});</code></pre>
+    </li>
+    <li> un survol du paragraphe <span id="aremplir2" class="rajout"></span>
+        <pre><code>var mondiv=document.getElementById('objetEvent');
+var contenu2=document.getElementById('aremplir2');
+mondiv.addEventListener('mouseover',function(e){mondiv.className="couleur";contenu2.innerHTML="a modifié la couleur de fond du bloc.";});</code></pre>
+    </li>
+</ul>
+</div>
+<div id="souris">
+    <h3> les événements souris</h3>
+    Voici la liste des événements souris avec des exemples d'application. 
+    <table>
+        <thead>
+        <tr>
+            <th>événement</th>
+            <th>action qui le déclenche </th>
+            <th> identification de l'élément (entre les balises &lt;body &gt; )</th>
+            <th> code de création de l'événement (entre les balises &lt;script &gt; )</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="ligne1">
+            <td>click</td>
+            <td>cliquer sur l'élément (appuyer puis relâcher)</td>
+            <td><pre><code>&lt;tr id="ligne1" &gt;</code></pre></td>
+            <td><i>exemple</i> : pour changer de couleur de fond à la ligne d'identifiant 'ligne1' en lui attribuant une classe css nommée "bleu" (et référencée dans la feuille de style)  
+                <pre><code>var ex1=document.getElementById('ligne1');
+ex1.addEventListener('click',function(e){ex1.className="bleu";})</code></pre></td>
+        </tr>
+        <tr id="ligne2">
+            <td>dblclick</td>
+            <td>double-cliquer sur l'élément</td> 
+            <td><pre><code>&lt;tr id="ligne2" &gt;</code></pre></td>
+            <td><i>exemple</i> : pour rajouter du texte dans un élément inline d'identifiant "aremplir3" ;
+                <span id="aremplir3" class="rajout"></span>
+            <pre><code>var ex2=document.getElementById('ligne2');
+var contenu3=document.getElementById('aremplir3');
+ex2.addEventListener('dblclick',function(e)
+{contenu3.innerHTML = contenu3.innerHTML+" j'ai rajouté du texte ici.";})</code></pre></td>
+        </tr>
+        <tr id="ligne3">
+            <td>mouseover</td>
+            <td>faire entrer le curseur sur l'élément</td>
+            <td><pre><code>&lt;tr id="ligne3" &gt;</code></pre></td>
+            <td rowspan="2"><i>exemple</i> : pour changer l'adresse de l'image d'identifiant 'icone' en modifiant son attribut <span class="methode">src</span> <img id='icone' src="emoticons/icone5.png">
+            <pre><code>var ex3=document.getElementById('ligne3');
+var ex4=document.getElementById('ligne4');
+var limage=document.getElementById('icone');
+ex3.addEventListener('mouseover',function(e)
+{limage.setAttribute('src','emoticons/icone2.png');});
+ex4.addEventListener('mouseout',function(e)
+{limage.setAttribute('src','emoticons/icone4.png');});
+</code></pre>
+            </td>
+        </tr>
+        <tr id="ligne4">
+            <td>mouseout</td>
+            <td>faire sortir le curseur de l'élément</td>
+            <td><pre><code>&lt;tr id="ligne4" &gt;</code></pre></td>
+        </tr>
+        <tr id="ligne5">
+            <td>mousedown</td>
+            <td>appuyer(sans relâcher) sur le bouton gauche de la souris au dessus de l'élément</td>
+            <td><pre><code>&lt;tr id="ligne5" &gt;</code></pre></td>
+            <td><i>exemple</i> : pour rendre visible ou cacher une image d'identifiant 'cache' avec la propriété <span class="methode">display </span><img id='cache' src="emoticons/icone3.png"><br>
+                Remarque : dans ce cas, l'objet (ici l'image) n'est pas affichée et sa place n'est pas réservée (la hauteur de ligne varie)<pre><code>var ex5=document.getElementById('ligne5');
+var limage2=document.getElementById('cache');
+ex5.addEventListener('mousedown',function(e)
+{limage2.style.display='block';})
+ex5.addEventListener('mouseup',function(e)
+{limage2.style.display='none';})</code></pre></td>
+        </tr>
+        <tr id="ligne6">
+            <td>mouseup</td>
+            <td>relâcher sur le bouton gauche de la souris au dessus de l'élément</td>
+            <td><pre><code>&lt;tr id="ligne6" &gt;</code></pre></td>
+            <td><i>exemple</i> : pour rendre visible ou cacher une image d'identifiant 'vu' avec la propriété <span class="methode">visibility</span><img id='vu' src="emoticons/icone3.png"><br>
+                Remarque : dans ce cas, l'objet (ici l'image) est juste masqué et sa place est réservée (la hauteur de ligne ne varie pas)
+                <pre><code>var ex6=document.getElementById('ligne6');
+var limage3=document.getElementById('vu');
+ex6.addEventListener('mousedown',function(e)
+{limage3.style.visibility='visible';})
+ex6.addEventListener('mouseup',function(e)
+{limage3.style.visibility='hidden';})</code></pre></td>
+        </tr>
+        <tr id="ligne7">
+            <td>mousemove</td>
+            <td>faire déplacer le curseur sur l'élément</td>
+            <td><pre><code>&lt;tr id="ligne7" &gt;</code></pre></td>
+            <td><i>exemple</i> : déplacer le curseur sur les deux premières cases de la ligne d'identifiant 'ligne7' va lui changer sa couleur en modifiant son attribut de style <span class="methode">backgroundColor</span><br>
+                Remarque : <span class="methode">e.clientX</span> et <span class="methode">e.clientY</span> sont les coordonnées de la souris.
+            <pre><code>var ex7=document.getElementById('ligne7');
+ex7.addEventListener('mousemove',function(e)
+{couleur="#"+(e.clientX%256).toString(16)+((255-e.clientX)%256).toString(16)+(e.clientY%256).toString(16);
+ex7.style.backgroundColor=couleur;})</code></pre></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+    
+<div id="clavier">
+    <h3> application :</h3>
+    <p> Vous trouverez ici un <a href="poeme/poeme.html">poème</a> : à vous de modifier la page de style et de rajouter des événements pour en rendre sa lecture "à la souris" dynamique et colorée.  <br>
+    Les apparitions/disparitions d'images seront aussi les bienvenues. <br>
+    Vous pouvez prendre un autre poème si vous le souhaitez.
+    </p>
+</div>
+</section>
+<resume>
+    <h3> En résumé </h3>
+Pour les événements souris, vous avez deux "choses" à faire :
+<ul>
+    <li>
+identifier l'élément de la page sur lequel vous aller "cliquer" 
+<br>exemple pour la ligne 1 du tableau  : <pre><code>&lt;tr id="ligne1" &gt;</code></pre></li>
+<li> écrire le code de création de l'événement dans la zone de script (situé dans mon document en fin de code source) <br>
+la création de l'événement associé à la ligne 1 :
+    <pre><code>var ex1=document.getElementById('ligne1');   // je récupère l'élément
+ex1.addEventListener('click',function(e){ex1.className="bleu";}) // je lui affecte l'événement</code></pre>
+
+</ul>
+<h4>Remarques : </h4>
+    <p>
+<span class="methode">function(e){}</span>    est l'architecture de la fonction "type" ; le <span class="methode">e</span>  passé en paramètre permet de faire référence à l'événement par exemple pour récupérer les coordonnées de la souris (<span class="methode">e.clientX</span>, <span class="methode">e.clientY</span>).<br>
+        Entre les accolades, on écrit tout ce que l'on veut qui soit exécuté lors du clic (ou de l'événement souris considéré).</p>
+<p>J'ai fait ici le choix de mettre le script javascript dans la page html ; on verra une prochaine fois comment le mettre dans un ficher externe et comment y accéder depuis la page HTML.</p>
+    </resume>
+<footer id="navigation">
+
+<a id="precedent" href="IHM_Web_Javascript.html"> &lt;- page précédente  </a> ; 
+<a id="suivant" href="IHM_Web_Javascript3.html">page suivante -&gt; </a>
+
+</footer>
+
+<nav> 
+<h4>Sources :</h4>
+<ul>
+    <li>
+        <a href="https://openclassrooms.com/fr/courses/1916641-dynamisez-vos-sites-web-avec-javascript/1918968-les-evenements">openclassrooms.com</a>
+    </li>
+    <li>
+        <a href="https://developer.mozilla.org/fr/docs/Apprendre/JavaScript/Building_blocks/Evènements">developer.mozilla.org</a>
+    </li>
+    <li>
+        <a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/addeventlistener-gestion-evenement/">Pierre Giraud</a>
+    </li>
+    <li>
+        <a href="https://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html">alsacreations.com</a>
+    </li>
+</ul>
+</nav>
+</body>
+<script>
+// pour le click sur la section
+var masection=document.getElementById('cours');
+var titre=document.getElementById('evenement');
+var contenu1=document.getElementById('aremplir1');
+masection.addEventListener('click',function(e){titre.innerHTML=titre.innerHTML+" et l'objet Event ";contenu1.innerHTML=" a modifié le texte du titre.";});
+// pour le survol du <div>
+var mondiv=document.getElementById('objetEvent');
+var contenu2=document.getElementById('aremplir2');
+mondiv.addEventListener('mouseover',function(e){mondiv.className="couleur";contenu2.innerHTML="a modifié la couleur de fond du bloc.";});
+// pour le clic sur la ligne 1 du tableau
+var ex1=document.getElementById('ligne1');
+ex1.addEventListener('click',function(e){ex1.className="bleu";})
+// pour le double-clic sur la ligne 2 du tableau
+var ex2=document.getElementById('ligne2');
+var contenu3=document.getElementById('aremplir3');
+ex2.addEventListener('dblclick',function(e){contenu3.innerHTML = contenu3.innerHTML+" j'ai rajouté du texte ici.";})
+// pour le mouseover et le mouseout sur les lignes 3 et 4 du tableau
+var ex3=document.getElementById('ligne3');
+var ex4=document.getElementById('ligne4');
+var limage=document.getElementById('icone');
+ex3.addEventListener('mouseover',function(e){limage.setAttribute('src','emoticons/icone2.png');});
+ex4.addEventListener('mouseout',function(e){limage.setAttribute('src','emoticons/icone4.png');});
+// pour le mousedown et le mouseup version display
+var ex5=document.getElementById('ligne5');
+var limage2=document.getElementById('cache');
+ex5.addEventListener('mousedown',function(e){limage2.style.display='block';})
+ex5.addEventListener('mouseup',function(e){limage2.style.display='none';})
+// pour le mousedown et le mouseup version visibility
+var ex6=document.getElementById('ligne6');
+var limage3=document.getElementById('vu');
+ex6.addEventListener('mousedown',function(e){limage3.style.visibility='visible';})
+ex6.addEventListener('mouseup',function(e){limage3.style.visibility='hidden';})
+//pour le mousemove
+var ex7=document.getElementById('ligne7');
+ex7.addEventListener('mousemove',function(e){couleur="#"+(e.clientX%256).toString(16)+((255-e.clientX)%256).toString(16)+(e.clientY%256).toString(16);ex7.style.backgroundColor=couleur;})
+
+
+</script>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>IHM</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <h1>IHM - Page web et javascript</h1>
+<section id="cours">
+<h2> 1. Le DOM et Javascript</h2>
+<div id="introduction">
+<h3 id="intro">Introduction</h3>
+<p>Le  <strong>Document Object Model (DOM)</strong> est une interface de programmation (appelée aussi <span class="vocabulaire">API, Application Programming Interface</span>) qui va permettre, via le Javascript, d'accéder au code HTML d'un document.
+Grâce au DOM, on pourra modifier des <span class="vocabulaire">éléments HTML</span> (afficher ou masquer un &lt;div&gt; par exemple), en ajouter, en déplacer ou en supprimer.
+</p>
+<p> <strong>JavaScript</strong> est un langage de programmation orienté objet employé dans les pages web interactives. Il a été créé en 1995 par Brendan Eich . Les premiers navigateurs possédaient des DOM différents ce qui obligeait à coder différemment en fonction du navigateur.
+Le W3C  a permis d'y remédier en publiant les spécifications du DOM : nous nous intéresserons à la dernière version, le DOM 2.
+</p>
+<p>Chaque paire de balises (ouvrante et fermante) de la page HTML est perçue par javascript comme un objet  (un élément HTML). Chaque élément HTML possède des propriétés et des méthodes  qui ne sont pas forcément les mêmes pour tous. Tous les éléments HTML sont du type Node (nœud) et ont, par conséquent, des propriétés et méthodes communes. 
+</p>
+</div>
+
+<div id="objets">
+    <figure>
+<img src="HTML-DOMDocument-Object-Model-1080x805.png"/>
+    <figcaption>Source : <a href = "https://visionofgeek.com/what-is-dom/">https://visionofgeek.com/</a>
+    </figcaption>
+</figure>
+<h3>Les objets/éléments</h3>
+les deux objets de départ :
+<ul>
+    <li>l'objet <strong>window</strong> : c'est un objet global qui représente la fenêtre du navigateur ; c'est celui auquel on fait référence lors que l'on utilise window.console.log() pour écrire dans la console ; 
+    </li>
+    <li>l'objet <strong>document</strong> : c'est un sous-objet de window qui représente la page Web (la paire de balises HTML)
+    </li>
+</ul>
+La page web est vue comme un arbre que l'on peut schématiser ainsi :
+
+<div id="acces">
+<h4>Accéder aux élements</h4>
+Trois méthodes principales :
+    <ul>
+        <li><span class="methode">getElementById()</span> : cette méthode permet d'accéder à un élément en connaissant son identifiant (id) ; cet identifiant doit être unique dans la page ;
+        </li>
+        <li><span class="methode">getElementsByTagName() </span>: cette méthode permet de récupérer dans un tableau tous les éléments d'une famille d'éléments, par exemple tous les div
+        </li>
+        <li><span class="methode">getElementsByName() </span> :  cette méthode permet de récupérer dans un tableau tous les éléments qui possèdent le même nom (attribut name) ; à réserver aux éléments des formulaires 
+        </li>
+    </ul>
+Deux méthodes récentes pas forcément supportées par tous les navigateurs : elles s'utilisent sur les sélecteurs CSS
+    <ul>
+        <li> <span class="methode">querySelector() </span>: renvoie le premier élément trouvé correspondant au sélecteur CSS
+        </li>
+        <li><span class="methode">querySelectorAll() </span> renvoie sous forme de tableau tous les éléments 
+        </li>
+    </ul>
+</div>
+<div id="editer">
+<h4>Editer les éléments</h4>
+    <ul>
+        <li><span class="methode">getAttribute() </span>: permet de récupérer l'attribut spécifié en argument
+        </li>
+        <li><span class="methode">setAttribute() </span>: permet de le modifier
+        </li>
+        <li><span class="methode"> innerHTML</span> : permet de récupérer et/ou modifier le code HTML d'un élément sous forme de texte 
+        </li>
+    </ul>
+
+</div>
+
+</div>
+</section>
+<section id="exemples">
+<h3>Code des exemples :</h3>
+<div>
+Le code correspondant au changement de texte du titre est le suivant :
+    <pre><code>var titre=document.getElementById('intro');
+window.alert("le &lt;h3 &gt; de haut de page contient le texte : "+titre.innerHTML+" . On va le modifier.");
+titre.innerHTML="Un peu de vocabulaire";</code></pre>
+    
+
+Le code correspondant au changement de couleur du bloc est le suivant :
+    <pre><code>var mondiv=document.getElementById('introduction');
+window.alert(" le premier paragraphe est sur fond jaune ; on va en modifier la couleur.");
+mondiv.className="couleur";</code></pre>
+    
+Ici, on a joué sur le fait que le code attend que la fenêtre d'alerte ait été fermée pour s'exécuter. Ce n'est pas la bonne stratégie pour rendre une page interactive : il est préférable de se servir d'événements.(voir paragraphe suivant)
+</div>
+</section>
+<footer id="navigation">
+<a id="suivant" href="IHM_Web_Javascript2.html">page suivante -&gt; </a>
+ </footer>
+    
+
+<nav> 
+<h4>Sources :</h4>
+<ul>
+    <li>
+        <a href="https://openclassrooms.com/fr/courses/1916641-dynamisez-vos-sites-web-avec-javascript/1918968-les-evenements">openclassrooms.com</a>
+    </li>
+    <li>
+        <a href="https://developer.mozilla.org/fr/docs/Apprendre/JavaScript/Building_blocks/Evènements">developer.mozilla.org</a>
+    </li>
+    <li>
+        <a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/addeventlistener-gestion-evenement/">Pierre Giraud</a>
+    </li>
+    <li>
+        <a href="https://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html">alsacreations.com</a>
+    </li>
+</ul>
+</nav>
+</body>
+<script>
+// pour le changement du texte du titre
+var titre=document.getElementById('intro');
+window.alert("le <h3> de haut de page contient le texte : "+titre.innerHTML+" . On va le modifier.");
+titre.innerHTML="Un peu de vocabulaire";
+// pour le changement de la couleur du fond du <div>
+var mondiv=document.getElementById('introduction');
+window.alert(" le premier paragraphe est sur fond jaune ; on va en modifier la couleur.");
+mondiv.className="couleur";
+</script>
+</html>

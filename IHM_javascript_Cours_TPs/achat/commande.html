@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Commande</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style_achat.css'>
+</head>
+<body>
+    <header>
+        <p id="pub"><img  src="./images/pub.png"></p></header>
+    <h1>Formulaire de commande</h1>
+    <form>
+    <!-- la zone à compléter avec les différents éléments de formulaire -->
+        
+    <!-- fin de la zone à compléter -->
+    <!-- le bouton d'enregistrement du formulaire -->
+    <input type="button" value="enregistrer" onclick="enregistrer()">
+        </form>
+</body>
+<script>
+    
+var contenu="rien pour le moment";
+    
+// la fonction d'enregistrement du formulaire, à compléter
+function enregistrer()
+    {
+        // récupération des données des éléments du formulaire à compléter 
+        // stockage en local des données dans la variable contenu
+        localStorage.setItem('maCommande', JSON.stringify(contenu));
+        // changement automatique de page vers l'accusé de réception
+        document.location.href="accuse.html";
+    }
+</script>
+</html>

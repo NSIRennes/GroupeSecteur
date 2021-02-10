@@ -1,0 +1,131 @@
+/* feuille de style */
+/* le titre */
+h1
+{
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+}
+/* le sous-titre */
+h2
+{
+    color: darkgreen;
+    text-align: center;
+    text-decoration: underline;
+}
+/* les sous-sous titres */
+h3,h4
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+/* les blocs */
+body
+{
+    background-color: cornsilk ;
+    color: black;
+}
+
+div
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: beige;
+}
+
+nav
+{
+    background-color: aqua;
+}
+
+code
+{
+    background-color : aliceblue;
+}
+
+img
+{
+    float: right;
+}
+
+table
+{
+    border :solid;2px;'black';
+}
+
+th
+{
+    border-bottom:solid;1px;'black';
+    border-right :solid;1px;'black';
+    padding : 2px;
+}
+
+td
+{
+    border-top :solid;1px;'black';
+    border-right :solid;1px;'black';
+    padding : 2px;
+}
+
+/* les classes */
+.vocabulaire
+{
+    font-style: italic;
+    font-weight: bold;
+    color :darkblue;
+}
+
+.methode
+{
+    font-style: italic;
+    font-weight: bold;
+    color : dimgray ;
+}
+
+.couleur
+{
+     background-color: chartreuse ;
+}
+
+.bleu
+{
+    background-color: aquamarine;
+}
+
+.rajout
+{
+    color : blueviolet;
+}
+
+.resultat
+{
+    background-color: yellow ;
+}
+/* les identifiants */
+#suivant
+{
+    font-size: 18px;
+    color : green;
+}
+
+#precedent
+{
+    font-size: 18px;
+    color : brown ;
+}
+
+#navigation
+{
+    text-align: center;
+}
+
+#cache
+{
+    display:none;
+}
+
+#vu
+{
+    visibility:hidden;
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>IHM</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <h1>IHM - Page web et javascript</h1>
+<section id="cours">
+<h2 id="formulaire"> 3. Les formulaires</h2>
+     
+    <h3> Quelques éléments de formulaires</h3>
+Voici la liste des principaux éléments de formulaire
+<form>
+    <table>
+        <thead>
+        <tr>
+        <th> Elément de formulaire
+        </th>
+        <th> Code html
+        </th>
+        <th>Script associé
+        </th> 
+        </tr>
+        </thead>
+        <tbody>
+    <tr>
+       <td id="casecouleur"><h4> Un élément de formulaire fondamental : le bouton</h4>
+            <input type="button" value="tester" onclick="testBidon()"></td>
+            <td>Le bouton est un type particulier des balises <span class="methode">input</span>, qui sont des balises "orphelines". Il permet de déclencher des fonctions.<br>
+                Code HTML du bouton de gauche :
+                <pre><code>&lt; input type="button" value="tester" onclick="testBidon()" &gt; </code></pre>
+                Remarque 1 : ici, le choix a été fait de créer l'événement souris (<span class="methode">click</span>) dans la balise HTML et non dans le script ; dans ce cas, il s'écrit <span class="methode">onclick</span>.<br>
+                Remarque 2 :  il existe d'autres façons de procéder pour créer des boutons.
+            </td>
+            <td> <i> exemple : </i> la fonction déclenchée par l'événement est ici un simple changement de couleur de la cellule d'identifiant "casecouleur"
+                <pre><code>
+    function testBidon()
+    {
+    document.getElementById("casecouleur").style.backgroundColor='aqua';
+    }</code></pre></td></tr>
+            <tr>
+        <td>
+	<h4> Boutons radio </h4>
+	<!-- le formulaire -->
+	
+    <div id="boutonsRadio">
+	<!-- il faut donner le même nom aux boutons radios mais des id différents-->
+	<!-- sous forme de tableau -->
+	<table>
+	<tr>
+	<td> 1<input type="radio" name="testRad" value="1" id="radio1"></td>
+	<td> 2<input type="radio" name="testRad" value="2" id="radio2"></td>
+	</tr>
+	<tr>
+	<td> 3<input type="radio" name="testRad" value="3" id="radio3"></td>
+	<td> 4<input type="radio" name="testRad" value="4" id="radio4"></td>
+	</tr>
+	</table>
+	<input type="button" value="tester" onclick="testRadio()">
+	</div>
+	<!-- le bloc de test -->
+	<div id="texteRadio" class="rajout"></div>
+	</td>
+        <td>Les boutons radios sont un type particulier des balises <span class="methode">input</span>, qui sont des balises "orphelines". 
+        <br> Code html du premier bouton radio :
+            <pre><code>1 &lt;input type="radio" name="testRad" value="1" id="radio1" &gt;</code></pre>
+            Remarque 1 : ici le choix a été de faire apparaître la légende (le 1) avant le bouton donc avant la balise. <br>
+           Remarque 2 : il faut donner le même nom aux boutons radios mais des id différents.</td>
+        <td>  <i> exemple : </i> on teste lequel des boutons radio est coché (<span class="methode">checked</span>) ; on rajoute alors son numéro dans le texte (aecrire) à afficher dans le bloc d'identifiant "texteRadio".
+            <pre><code>
+function testRadio()
+{
+var aecrire="Le bouton radio sélectionné est le ";
+if (document.getElementById('radio1').checked) aecrire+=1;
+if (document.getElementById('radio2').checked) aecrire+=2;
+if (document.getElementById('radio3').checked) aecrire+=3;
+if (document.getElementById('radio4').checked) aecrire+=4;
+document.getElementById('texteRadio').innerHTML=aecrire;
+contenu+=aecrire;
+contenu+="&lt; br &gt;";
+}</code></pre>
+        </td>
+        </tr>
+	<tr><td>
+	<h4> Cases à cocher </h4>
+	<!-- le formulaire -->
+	<div id="casesACocher">
+	<input type="checkbox" name="testCase" value="Case 1" id="case1">Case 1   <br>  
+	<input type="checkbox" name="testCase" value="Case 2" id="case2"> Case 2  <br>  
+	 <input type="checkbox" name="testCase" value="Case 3" id="case3">Case 3<br>
+	<input type="button" value="tester" onclick="testCases()">
+	</div>
+	
+	<!-- le bloc de test -->
+	<div id="texteCases" class="rajout"></div>
+	</td>
+        <td>Les cases à cocher sont un type particulier des balises <span class="methode">input</span>, qui sont des balises "orphelines". 
+        <br> Code html de la première case à cocher :
+            <pre><code> &lt;input type="checkbox" name="testCase" value="Case 1" id="case1" &gt; Case 1</code></pre>
+            Remarque 1 : ici le choix a été de faire apparaître la légende (Case 1) après le bouton donc après la balise. <br>
+           Remarque 2 : il faut donner le même nom aux cases à cocher mais des id différents.</td>
+        
+        <td> <i> exemple : </i> on teste lesquelles des cases sont cochées (<span class="methode">checked</span>) ; on rajoute alors leurs numéros dans le texte (aecrire) à afficher dans le bloc d'identifiant "texteCases".
+            <pre><code>
+function testCases()
+{
+var aecrire="vous avez coché ";
+if (document.getElementById('case1').checked) aecrire+=" la case 1, ";
+if (document.getElementById('case2').checked) aecrire+=" la case 2, ";
+if (document.getElementById('case3').checked) aecrire+=" la case 3, ";
+document.getElementById('texteCases').innerHTML=aecrire;
+contenu+=aecrire;
+contenu+="<br>";
+}</code></pre></td>
+        </tr>
+	<tr><td>
+	<h4> Sélection </h4>
+	<!-- le formulaire -->
+	<div id="MenuDeroulant">
+	<select>
+	<option name="selection" value="..." id="rien">....</option>
+	<option name="selection" value="mot 1" id="mot1">mot 1</option>
+	<option name="selection" value="mot 2" id="mot2">mot 2</option>
+	</select>
+	<input type="button" value="tester" onclick="testMenu()">
+	</div>
+	
+	<!-- le bloc de test -->
+	<div id="texteMenu" class="rajout"></div>
+	</td>
+        <td>Les menus déroulant se construisent à partir de deux modèles de balises : les balises <span class="methode">select</span> (ouvrante et fermante) délimitent l'ensemble du menu déroulant ; les balises <span class="methode">option</span>(ouvrantes et fermantes) encadrent chaque proposition.
+            <pre><code>
+            &lt;select &gt;
+	&lt; option name="selection" value="..." id="rien" &gt;....&lt; /option &gt;
+	&lt; option name="selection" value="mot 1" id="mot1" &gt; mot 1 &lt;/option &gt; 
+	&lt; option name="selection" value="mot 2" id="mot2"&gt; mot 2 &lt;/option &gt;
+	&lt;/select &gt;</code></pre>
+            Remarque 1 : ici le choix a été de faire apparaître une première légende vide (…) pour l'affichage par défaut (qui est la première balise <span class="methode">option</span>) .<br>
+           Remarque 2 : il faut donner le même nom aux balises <span class="methode">option</span> mais des id différents.
+        </td>
+        <td><i> exemple : </i> on teste quel mot a été sélectionné (<span class="methode">selected</span>) ; on rajoute alors ce mot dans le texte (aecrire) à afficher dans le bloc d'identifiant "texteMenu".
+            <pre><code>
+function testMenu()
+{
+var aecrire="vous avez sélectionné ";
+if (document.getElementById('mot1').selected) aecrire+="le mot 1";
+if (document.getElementById('mot2').selected) aecrire+="le mot 2";
+document.getElementById('texteMenu').innerHTML=aecrire;
+contenu+=aecrire;
+contenu+="<br>";
+}</code></pre></td>
+        </tr>
+	<tr><td>
+	<h4> Récupération de texte </h4>
+	<!-- le formulaire -->
+	<div id="zoneTexte">
+	Entrez votre texte : <input type="text" value="" id="saisie">
+	<input type="button" value="tester" onclick="testSaisie()">
+    </div>
+	
+	<!-- le bloc de test -->
+	<div id="texteSaisie" class="rajout"></div>
+    </td>
+        <td>Les zones de texte à saisir (texte court) sont un type particulier des balises <span class="methode">input</span>, qui sont des balises "orphelines". 
+        <br> Code html de la zone de texte à saisir :
+            <pre><code>Entrez votre texte : &lt; input type="text" value="" id="saisie" &gt;</code></pre>
+            Remarque : il existe d'autres balises permettant de récupérer un texte plus long.
+        <td><i>exemple : </i> on récupère le texte entré (<span class="methode">value</span>) ; on rajoute alors ce texte dans le texte (aecrire) à afficher dans le bloc d'identifiant "texteSaisie".
+            <pre><code>
+function testSaisie()
+{
+var aecrire="vous avez écrit ";
+aecrire+=document.getElementById('saisie').value;
+document.getElementById('texteSaisie').innerHTML=aecrire;
+contenu+=aecrire;
+contenu+="<br>";
+}</code></pre></td>
+    </tr>
+            </tbody>
+    </table>    
+    <h4>Enregistrer le résultat</h4>
+    
+    <input type="button" value="enregistrer" onclick="enregistrer()">
+   <br>
+    <p>Ici, le choix a été fait d'enregistrer les données en local. Les fonctions activées précédemment ont permis de rajouter les morceaux de texte à une variable (contenu) ; ce texte va être stocké sous l'identifiant 'monTexte' .</p>
+    Script lié au bouton :
+    <pre><code>
+var contenu="";
+function enregistrer()
+{
+localStorage.setItem('monTexte', JSON.stringify(contenu));	
+}</code></pre>
+         </form>
+
+</section>
+<footer id="navigation">
+
+<a id="precedent" href="IHM_Web_Javascript3.html"> &lt;- page précédente  </a> ; 
+<a id="suivant" href="IHM_Web_Javascript5.html">page suivante -&gt; </a>
+
+</footer>
+
+<nav> 
+<h4>Sources :</h4>
+<ul>
+    <li>
+        <a href="https://openclassrooms.com/fr/courses/1916641-dynamisez-vos-sites-web-avec-javascript/1918968-les-evenements">openclassrooms.com</a>
+    </li>
+    <li>
+        <a href="https://developer.mozilla.org/fr/docs/Apprendre/JavaScript/Building_blocks/Evènements">developer.mozilla.org</a>
+    </li>
+    <li>
+        <a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/addeventlistener-gestion-evenement/">Pierre Giraud</a>
+    </li>
+    <li>
+        <a href="https://www.alsacreations.com/article/lire/578-La-gestion-des-evenements-en-JavaScript.html">alsacreations.com</a>
+    </li>
+</ul>
+</nav>
+</body>
+<script>
+
+// pour enregistrer en local
+     
+var contenu="";
+    function enregistrer()
+{
+    localStorage.setItem('monTexte', JSON.stringify(contenu));	
+}
+    
+// la fonction du bouton de la première ligne du tableau
+    function testBidon()
+    {
+        document.getElementById("casecouleur").style.backgroundColor='aqua';
+    }
+
+
+// la fonction qui écrit quel bouton radio a été sélectionné
+		function testRadio()
+		{
+			var aecrire="Le bouton radio sélectionné est le ";
+			if (document.getElementById('radio1').checked) aecrire+=1;
+			if (document.getElementById('radio2').checked) aecrire+=2;
+			if (document.getElementById('radio3').checked) aecrire+=3;
+			if (document.getElementById('radio4').checked) aecrire+=4;
+			document.getElementById('texteRadio').innerHTML=aecrire;
+            contenu+=aecrire;
+            contenu+="<br>";
+		}
+		
+		// la fonction qui écrit quelle(s) case(s) a (ont) été sélectionnée(s)
+		function testCases()
+		{
+			var aecrire="vous avez coché ";
+			if (document.getElementById('case1').checked) aecrire+=" la case 1, ";
+			if (document.getElementById('case2').checked) aecrire+=" la case 2, ";
+			if (document.getElementById('case3').checked) aecrire+=" la case 3, ";
+			document.getElementById('texteCases').innerHTML=aecrire;
+            contenu+=aecrire;
+            contenu+="<br>";
+		}
+		
+		// la fonction qui écrit quel mot a été sélectionné
+		function testMenu()
+		{
+			var aecrire="vous avez sélectionné ";
+			if (document.getElementById('mot1').selected) aecrire+="le mot 1";
+			if (document.getElementById('mot2').selected) aecrire+="le mot 2";
+			document.getElementById('texteMenu').innerHTML=aecrire;
+            contenu+=aecrire;
+            contenu+="<br>";
+		}
+		
+		// la fonction qui réécrit le texte saisi
+		function testSaisie()
+		{
+			var aecrire="vous avez écrit ";
+			aecrire+=document.getElementById('saisie').value;
+			document.getElementById('texteSaisie').innerHTML=aecrire;
+            contenu+=aecrire;
+            contenu+="<br>";
+		}
+    
+
+		
+</script>
+</html>

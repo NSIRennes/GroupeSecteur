@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Commande</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style_achat.css'>
+</head>
+<body onload="recuperer()">
+    <header>
+        <p id="pub"><img  src="./images/pub.png"></p></header>
+    <h1>Accusé de réception</h1>
+    <p> Nous accusons réception de votre commande du Dronépik : <br>
+        <span id="reception" ></span>
+    </p>
+</body>
+<script>
+       
+// la fonction de récupération du contenu de la commande
+function recuperer()
+    {
+        var obj = JSON.parse(localStorage.getItem('maCommande'));
+        document.getElementById("reception").innerHTML=obj; 
+    }
+    
+</script>
+</html>
