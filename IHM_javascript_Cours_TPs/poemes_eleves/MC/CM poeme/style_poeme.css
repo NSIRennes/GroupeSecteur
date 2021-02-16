@@ -1,0 +1,80 @@
+/* feuille de style pour le poème */
+a:link { /*Permet d'enlever les couleurs des liens par défaut.*/
+	text-decoration:none;  
+}
+html{ /*Permet de faire une descente lente lors des descentes de la souris.*/
+	scroll-behavior: smooth;
+}
+body{ /*L'image de fond ne se répète pas + couleur noir + couvrir toute la page + aucun dépassement en dehors de la page*/
+	background-repeat: no-repeat;	
+	background-color: #110000;
+	background-size: cover;
+	margin: 0px;
+	padding: 0px;
+}
+header{ /*Image de fond + hauteur de 60 vw (vw = unité proportionelle à la tailel de l'écran) + taille fond : 100% + pas de répétition + texte centrer*/
+	background-image: url("Prairie.jpg");
+	height: 60vw;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+ul{ /*aucun dépassement + Retire les points à coté des liens + hauteur de 6 vw et largeur proportionelle + couleur e fond grise*/
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: auto;
+	height: 6vw;
+	background-color: rgb(117, 117, 175);
+}
+li{ /*Bloc en ligne + centrer + marge à droite : 2.5vw + marge à gauche : 2.5vw + marge en hait : 10px*/
+	display: inline-block;
+	justify-content: center;
+	margin-right: 2.5vw;
+	margin-left: 2.5vw;
+	margin-top: 10px;
+}
+h1{ /*centrer + pas de padding + marge en haut : 10vw + hauteur de 5 vw*/
+	float: center;
+	padding: none;
+	margin-top: 10vw;
+	height: 5vw;
+}
+h2{ /*couleur bleue + taille de texte 3vw + police défini + petite taille de texte + marge en haut*/
+	color: rgb(24, 115, 219);
+	font-size: 3vw;
+	font-family: 'Courier New', Courier, monospace;
+	font-stretch: extra-condensed;
+	margin-top: 10vw;
+}
+h3{ /*taille de texte 5 vw + largeur 20 vw + gris + padding en haut de 50 px et pareil à gauche*/
+	font-size: 5vw;
+	width: 20vw;
+	color: gray;
+	padding-top: 50px;
+	padding-left: 50px;
+}
+p{ /*noir + tailel de texte de 3vw + paddind à droite de 5vw + largeur de 62vw + hauteur auto*/
+	color: black;
+	font-size: 3vw;
+	padding-left: 5vw;
+	width: 62vw;
+	height: auto;
+
+}
+figure{ /*position de l'image absolue + distance par rapport à la droite : 2vw et de 6vw par rapport au haut*/
+	position: absolute;
+	right: 2vw;
+	top: 65vw;
+	
+}
+#poeme{ /*fond du poème : rose pale + padding du dessous : 20 px + largeur de 100% et hauteur auto*/
+	background-color: wheat;
+	padding-bottom: 20px;
+	width: 100%;
+	height: auto;
+}
+footer{ /*gris + taille de 200%*/
+	color: grey;
+	font-size: 200%;
+}

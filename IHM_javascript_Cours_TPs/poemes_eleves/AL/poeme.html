@@ -1,0 +1,141 @@
+<!--author: ALBERT Lauryne--> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Le Dormeur du Val</title>
+        <link rel="stylesheet" type="text/css" href="style_poeme.css"/>
+    </head>
+    <body>
+    <header>
+        <h1 id="titre">Le Dormeur du Val</h1>
+    </header>
+    <!---les "container" sont définis comme flexbox dans le CSS. On peut ainsi manipuler leur position.--> 
+        <div class="container-1">
+            <div class="box-1">
+              <figure>
+                <img id="e" class="image_0" src="_rimbaudpp.jpg" alt="Arthur Rimbaud Peinture">
+              </figure>
+                <div class="media-body">
+                    <p id="titre">Je suis <strong>le</strong> poète français par excellence. De mon nom complet <i>Jean Nicolas Arthur Rimbaud</i>, je suis né le 20 octobre 1854 à Charleville-Mézières dans les Ardennes.
+                    Elève brillant, j'ai remporté des prix de littérature dès mon adolescence. J'ai même sauté la classe de 5e ! Grâce à ma plume talentueuse, j'ai remporté divers prix dont le premier prix du <strong>Concours académique</strong> en 1869.
+                    Ma vie, aventureuse et vagabonde, marque profondément mes oeuvres : "Les Illuminations" et "Une saison en Enfer". Je les ai écrit en errant avec un de mes plus intimes ami : Paul Verlaine. 
+                    </p>
+                </div>
+              </div>
+              <div class="box-2">
+                  <p class="poeme_" id="_poeme"> 
+                      <h3>Le Dormeur du Val</h3>
+                      <p id="a">C'est un trou de verdure où chante une rivière,<br><!--la balise <br> sert à effectuer des sauts de ligne.-->
+                      Accrochant follement aux herbes des haillons<br>        
+                      D'argent; où le soleil, de la montagne fière,<br>
+                      Luit : c'est un petit val qui mousse de rayons.</p> 
+                      
+                      <p id="b">Un soldat jeune, bouche ouverte, tête nue,<br>
+                      Et la nuque baignant dans le frais cresson bleu,<br>
+                      Dort ; il est étendu dans l'herbe, sous la nue,<br>
+                      Pâle dans son lit vert où la lumière pleut.</p>
+                      
+                      <p id="c">Les pieds dans les glaïeuls, il dort. Souriant comme<br>
+                      Sourirait un enfant malade, il fait un somme : <br>
+                      Nature, berce-le chaudement : il a froid.</p>
+                      
+                      <p id="d" class="couleur">Les parfums ne font pas frissonner sa narine ;<br>
+                      Il dort dans le soleil, la main sur sa poitrine,<br>
+                      Tranquille. Il a deux trous rouges au côté droit.<br></p>
+                      <l>Arthur Rimbaud.</l>
+                  </p>
+                </div>
+              <div class="box-3">
+                  <img id="image_1" src="_foret.jpg">
+                  <figcaption>- paysage naturel -</figcaption>
+                  <img id="image_2"src="_shallow.jpg">
+                  <figcaption id="fig_1"> - herbes ensoleillées -</figcaption>
+                  <img id="image_3" src="_montagne.jpg">
+                  <figcaption>- la montagne fière -</figcaption>
+                  <img id="image_4" src="_woundead.JPG" style="visibility:hidden;">
+                  
+              </div>
+            </div>
+              
+            <footer>
+              <!--la balise <a></a> sert à insérer des liens.-->
+              <a href="https://unsplash.com">source des images</a>
+              <ul>
+                <li>Si tu survoles le premier paragraphe du poème, une image se changera en une autre !</li>
+                <li>Si tu cliques sur le dexuième paragraphe avec ta souris, une autre image changera à nouveau !</li>
+                <li>Si tu reste appuyé sur le clic de la souris sur le dernier paragraphe, le fond de celui-ci deviendra gris!</li>
+                <li>Si tu survoles la deuxième image, une description apparaitra !</li>
+                <li>Si tu maintient le clic de la souris sur le troisième paragraphe, une image apparaitra jusqu'à ce que tu lâches le clic!</li>
+              </ul>
+
+
+            
+            </footer>
+            </body>
+        
+            <!--Ici se trouve le script-->
+            <script>
+
+              //lorsque le premier paragraphe(paysage embrumé) est survolé, cette même image se change en image de rivière.
+              var limage=document.getElementById("image_1");
+              a.addEventListener('mouseover',function(e)
+              {limage.setAttribute('src','_river.jpg');});
+              a.addEventListener('mouseout',function(e)
+              {limage.setAttribute('src','_foret.jpg');});
+
+              //lorsque l'on clique sur le deuxième paragraphe, la deuxième image change de source. 
+              var limage_encore=document.getElementById("image_2");
+              b.addEventListener('click',function(e)
+              {limage_encore.setAttribute('src','_light.jpg');});
+
+              //lorsque l'on maintient le clic sur le dernier paragraphe, le fond de celui-ci devient gris. lorsque l'on lache ce même clic, le fond redevient blanc.
+              var para=document.getElementById("d");
+              para.addEventListener('mousedown',function(e)
+              {d.style.backgroundColor = "gray";});
+              para.addEventListener('mouseup', function(e)
+              {d.style.backgroundColor="white";}); //instruction différente du cours
+
+              //lorsque l'on survole la deuxième image, une description s'ajoute.
+              var fig = document.getElementById("fig_1")
+              limage_encore.addEventListener('mouseover', function(e)
+              {fig.innerHTML = fig.innerHTML="- lumière -";})
+
+              //lorsque l'on maintient le clic sur le troisème paragraphe, une image apparait. Celle-ci disparait si l'on lache ce même clic.
+              var para_1=document.getElementById('c');
+              var limage4=document.getElementById('image_4');
+              para_1.addEventListener('mousedown',function(e)
+              {limage4.style.visibility='visible';})
+              para_1.addEventListener('mouseup',function(e)
+              {limage4.style.visibility='hidden';})
+
+              //lorsque l'on passe sur le titre avec la souris, il change de couleur.Ne fonctionne pas
+              var le_titre = document.getElementById("titre");
+              le_titre.addEventListener('mouseover', function(e)
+              {le_titre.style='color=black;'})
+
+
+              
+
+
+
+
+
+              
+              
+            </script>
+
+</html>
+                  
+
+
+            
+    
+            
+
+                
+
+
+            
+            
+     

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Poème Clément</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style_poeme.css'>
+</head>
+<body id="page">
+<header id="tête">
+    <nav>
+        <ul id="entête">
+            <li><img src="Precedent.png" width="179" height="38" alt="Precedent"></li>
+            <li><img src="Poesie.png" width="296" height="80" alt="Poesie"> </li>
+            <li><img src="Suivant.png" width="132.5" height="38" alt="Suivant"></li>
+        </ul>
+    </nav>
+    <h1 id="titre">
+        <img id="tpoeme" src="Le-dormeur-du-Val.png" width="1200" height="100" alt="Titre">
+    </h1>
+    <h2 id ="surprise">
+        
+    </h2>
+</header>
+
+<section id="poeme">
+    <h3 id="nompoeme">
+        Poème :
+    </h3>
+    <p>
+    C’est un trou de verdure où chante une rivière, <br>
+    Accrochant follement aux herbes des haillons <br>
+    D’argent ; où le soleil, de la montagne fière, <br>
+    Luit : c’est un petit val qui mousse de rayons. <br>
+    
+    Un soldat jeune, bouche ouverte, tête nue, <br>
+    Et la nuque baignant dans le frais cresson bleu, <br>
+    Dort ; il est étendu dans l’herbe, sous la nue, <br>
+    Pâle dans son lit vert où la lumière pleut. <br>
+    
+    Les pieds dans les glaïeuls, il dort. Souriant comme <br>
+    Sourirait un enfant malade, il fait un somme : <br>
+    Nature, berce-le chaudement : il a froid. <br>
+    
+    Les parfums ne font pas frissonner sa narine ; <br>
+    Il dort dans le soleil, la main sur sa poitrine, <br>
+    Tranquille. Il a deux trous rouges au côté droit. <br>
+    <figure>
+       <img id="image" src="Le Dormeur du Val - Image Noir et Blanc.jpg" alt="Belle photo">
+    </figure>
+    </p>
+</section> 
+<footer id="moi">
+	Clément Marie
+</footer>
+
+</body>
+<script>
+// Lorsque l'on clique sur le titre du poème, cela nous dirige vers le poème en question.
+var titre=document.getElementById('titre');
+titre.addEventListener('click',function(e){window.scrollTo(poeme.offsetLeft,poeme.offsetTop);});
+// Lorsque l'on double-clique sur l'en-tête, cela rajoute du texte.
+var tete=document.getElementById('tête');
+var auteur=document.getElementById('surprise');
+tete.addEventListener('dblclick',function(e){auteur.innerHTML = auteur.innerHTML+"Bravo, vous avez trouvé le message caché !";})
+// Lorsque vous passez votre souris sur l'image, elle change.
+var poeme=document.getElementById('poeme');
+var image=document.getElementById('image');
+image.addEventListener('mouseover',function(e){image.setAttribute('src','Le Dormeur du Val - Image Noir et Blanc 2.jpg');});
+poeme.addEventListener('mouseout',function(e){image.setAttribute('src','Le Dormeur du Val - Image Noir et Blanc.jpg');});
+// Lorsque vous appuyez sur le titre "Poème", il change de couleur.
+var nom=document.getElementById('nompoeme');
+nom.addEventListener('mousedown',function(e){nom.style.color= 'black';})
+poeme.addEventListener('mouseup',function(e){nom.style.color='grey';})
+// Lorsque vous passez votre souris sur l'entête, la couleur change selon la position de la souris.
+var et=document.getElementById('entête');
+et.addEventListener('mousemove',function(e)
+{couleur="#"+(e.clientX%256).toString(16)+((innerWidth-e.clientX)%256).toString(16)+(e.clientY%256).toString(16);et.style.backgroundColor=couleur;})
+</script>
+</html>

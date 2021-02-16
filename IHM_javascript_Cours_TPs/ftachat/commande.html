@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Commande</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style_achat.css'>
+</head>
+<body align=center>
+    <header>
+        <p id="pub"><img  src="./images/pub.png"></p></header>
+    <h1>Formulaire de Commande</h1>
+    <form>
+    <!-- la zone à compléter avec les différents éléments de formulaire -->
+        Nom et Prénom : <input type="text" value="" id="saisienoms" > <br><br>
+			Modèle de Drone : <select>
+		<option name="selection" value="mouche" id="mot1"> mouche (150€) </option> 
+		<option name="selection" value="moustique" id="mot2"> moustique(175€)</option>
+		<option name="selection" value="guêpe" id="mot3"> guêpe (200€)</option> 
+		<option name="selection" value="bourdon" id="mot4"> bourdon (250€)</option>
+		</select> <br><br>
+		1280 x 720<input type="radio" name="resolution" value="1" id="radio1" > <br>
+		1920 x 1080 (+75€)<input type="radio" name="resolution" value="2" id="radio2" > <br>
+		4096 x 2160 (+150€)<input type="radio" name="resolution" value="3" id="radio3" > <br><br>
+		<input type="checkbox" name="options" value="bluetooth" id="case1" > Connexion Bluetooth (+25€) <br>
+		<input type="checkbox" name="options" value="detecteur" id="case2" > Détecteur de Mouvement (+75€)<br>
+		<input type="checkbox" name="options" value="bourdonnement" id="case3" > Bourdonnement Réaliste (+25€)<br><br>
+		Adresse de Livraison : <input type="text" value="" id="saisieadresse" > <br>
+			Mode de Livraison : <select>
+		<option name="selection" value="livraison" id="livraisone">Livraison à Domicile (+15€) </option>
+		<option name="selection" value="retrait" id="retrait"> Retrait en Magasin </option> 
+		</select> <br><br>
+		
+    <!-- fin de la zone à compléter -->
+    <!-- le bouton d'enregistrement du formulaire -->
+    <input type="button" value="ENREGISTRER" onclick="enregistrer()">
+        </form>
+</body>
+<script>
+    
+// la fonction d'enregistrement du formulaire, à compléter
+	function enregistrer()
+	{
+        // récupération des données des éléments du formulaire à compléter 
+			var contenu="";
+			var prix=0;
+			var nomprenom="";
+		nomprenom+=document.getElementById('saisienoms').value;
+		contenu+="Au nom de ";
+		contenu+=nomprenom;
+			var modeledrone="";
+		if (document.getElementById('mot1').selected) {modeledrone+="mouche"; prix+=150;}
+		if (document.getElementById('mot2').selected) {modeledrone+="moustique"; prix+=175;}
+		if (document.getElementById('mot3').selected) {modeledrone+="guêpe"; prix+=200;}
+		if (document.getElementById('mot4').selected) {modeledrone+="bourdon"; prix +=250;}
+		contenu+=" ,vous avez choisi le modèle ";
+		contenu+=modeledrone;
+			var resolutionrad="";
+		if (document.getElementById('radio1').checked) resolutionrad+="1280 x 720";
+		if (document.getElementById('radio2').checked) {resolutionrad+="1920 x 1080"; prix+=75;}
+		if (document.getElementById('radio3').checked) {resolutionrad+="4096 x 2160"; prix+=150;}
+		contenu+=", avec une résolution de ";
+		contenu+=resolutionrad;
+			var optioncase="";
+		if (document.getElementById('case1').checked) {optioncase+="Connexion Bluetooth "; prix+=25;}
+		if (document.getElementById('case2').checked) {optioncase+="Détecteur de Mouvement "; prix+=75;}
+		if (document.getElementById('case3').checked) {optioncase+="Bourdonnement Réaliste"; prix+=25;}
+		contenu+=" pixels, avec la (ou les) option(s) suivantes :";
+		contenu+=optioncase;
+		contenu+="<br>";
+			var adresselivr="";
+		adresselivr+=document.getElementById('saisieadresse').value;
+		contenu+="Vous serez livré à l'adresse suivante : "
+		contenu+=adresselivr;
+			var modeliv="";
+		if (document.getElementById('livraisone').selected) {modeliv+="livraison à domicile"; prix+=15;}
+		if (document.getElementById('retrait').selected) modeliv+="retrait en magasin le plus proche";
+		contenu+=" avec le mode de livraison suivant : ";
+		contenu+=modeliv;
+		contenu+="<br>";
+		contenu+="Prix : ";
+		contenu+=prix;
+		contenu+="€";
+        // stockage en local des données dans la variable contenu
+		localStorage.setItem('maCommande', JSON.stringify(contenu));
+        // changement automatique de page vers l'accusé de réception */
+		document.location.href="accuse.html";
+	}
+</script>
+</html>

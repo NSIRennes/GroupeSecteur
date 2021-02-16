@@ -1,0 +1,38 @@
+/* feuille de style pour le poème */
+
+/*style pour le body*/
+
+body
+{
+	text-align : center;
+	color : white;
+	background-image: url("fond.jpg");
+	width
+}
+
+/*style pour le paragraphe*/
+
+p1, p2, p3, p4
+{
+	font-size : large;
+}
+
+/*style pour le titre et l'auteur*/
+
+p1, div
+{
+	font-weight : bold;
+	font-style : italic;
+	text-decoration : blink;
+}
+
+p6
+{
+	color : grey;
+	text-align : right;
+}
+
+img
+{
+	float : left;
+}

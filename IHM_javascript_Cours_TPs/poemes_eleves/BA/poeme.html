@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>IHM</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style_poeme.css'>
+</head>
+<body>
+<h1 id="titre"> Le dormeur du val</h1>
+<div id="sous-titre">Arthur Rimbaud</div>
+
+<p id="p1"><br>C’est un trou de verdure où chante une rivière,<br/>
+<br>Accrochant follement aux herbes des haillons<br/>
+<br>D’argent ; où le soleil, de la montagne fière,<br/>
+<br>Luit : c’est un petit val qui mousse de rayons.<br/>
+</p>
+
+<p id="p2"><br>Un soldat jeune, bouche ouverte, tête nue,<br/>
+<br>Et la nuque baignant dans le frais cresson bleu,<br/>
+<br>Dort ; il est étendu dans l’herbe, sous la nue,<br/>
+<br>Pâle dans son lit vert où la lumière pleut.<br/>
+</p>
+
+<img id="image" src="rimbaud.jpg" style="display": none; widht=100 height=150;>
+
+<p id="p3"><br>Les pieds dans les glaïeuls, il dort. Souriant comme<br/>
+<br>Sourirait un enfant malade, il fait un somme :<br/>
+<br>Nature, berce-le chaudement : il a froid.<br/>
+</p>
+
+<p id="p4"><br>Les parfums ne font pas frissonner sa narine ;<br/>
+<br>Il dort dans le soleil, la main sur sa poitrine,<br/>
+<br>Tranquille. Il a deux trous rouges au côté droit.<br/>
+</p>
+
+<p id="p5">Bienvenue sur la page d'Alexandre BRASSIER sur le dormeur du val d'Arthur Rimbaud.
+</p>
+
+<p id="p6">Merci de m'avoir lu
+</p>
+
+<a id="lien" href="404.html" onclick="alert('Mince ce lien est mort :( !');return false">Dead Link </a>
+
+</body>
+<script>
+// là où écrire le code faisant intervenir les événements souris
+//Fait apparaître une petite fenêtre pour dire bienvenue
+var p5 = document.getElementById("p5");
+alert(p5.innerHTML);
+p5.innerHTML="";
+// Demande le pseudo afin de dire merci à la personne d'avoir lu mon texte
+var pseudo = prompt('Veuillez entrer votre pseudo');
+p6.innerHTML += pseudo + ' !'
+// Change la couleur du paragraphe1
+var ex1=document.getElementById('p1');
+ex1.addEventListener('click',function(e){ex1.style.color="yellow";})
+// Permet de rajouter du texte à un endroit précis
+var ex2=document.getElementById('p2');
+var contenu3=document.getElementById('sous-titre');
+ex2.addEventListener('dblclick',function(e)
+{contenu3.innerHTML = contenu3.innerHTML+" Arthur Rimbaud";})
+// Permet de rendre visible ou cacher une image avec le clic
+var ex3=document.getElementById('p3');
+var limage1=document.getElementById('image');
+ex3.addEventListener('mousedown',function(e)
+{limage1.style.display='block';})
+ex3.addEventListener('mouseup',function(e)
+{limage1.style.display='none';})
+// Permet de mettre plusieurs couleurs quand on passe sur le début de la ligne p4
+var ex4=document.getElementById('p4');
+ex4.addEventListener('mousemove',function(e)
+{couleur="#"+(e.clientX%256).toString(16)+((255-e.clientX)%256).toString(16)+(e.clientY%256).toString(16);
+ex4.style.backgroundColor=couleur;})
+</script>
+</html>
